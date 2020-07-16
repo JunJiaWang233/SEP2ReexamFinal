@@ -38,7 +38,7 @@ public class LoginC {
     public void loginAction() throws RemoteException, SQLException {
         User user= loginVM.selectUserByEmailPhone();
         if (user !=null){
-            System.out.println("log in");
+            viewHandler.openMainWindowView();
         }else {
             initDialog("Login failed, please try again!");
         }

@@ -6,6 +6,7 @@ public class ViewModelFactory {
     private ModelFactory modelFactory;
     private SignUpVM signUpVM;
     private LoginVM loginVM;
+    private MainWindowVM mainWindowVM;
 
     public ViewModelFactory(ModelFactory modelFactory) {
         this.modelFactory = modelFactory;
@@ -25,5 +26,13 @@ public class ViewModelFactory {
             loginVM= new LoginVM(modelFactory.getLoginM());
         }
         return loginVM;
+    }
+
+    public MainWindowVM getMainWindowVM(){
+        mainWindowVM= null;
+        if (mainWindowVM== null){
+            mainWindowVM= new MainWindowVM();
+        }
+        return mainWindowVM;
     }
 }

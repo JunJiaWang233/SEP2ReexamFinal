@@ -46,6 +46,32 @@ public class ViewHandler {
         this.stage.show();
     }
 
+    public void openMainWindowView(){
+        FXMLLoader loader= new FXMLLoader();
+        String path= "sep2\\client\\view\\MainWindow.fxml";
+        Parent root= getRootByPath(path, loader);
+        MainWindowC mainWindowC= loader.getController();
+        mainWindowC.initView(this);
+        Scene scene= new Scene(root);
+        this.stage.setScene(scene);
+        this.stage.setResizable(false);
+        this.stage.setTitle("good chat");
+        this.stage.show();
+    }
+
+    public void openFriendView(){
+        FXMLLoader loader= new FXMLLoader();
+        String path= "sep2\\client\\view\\FriendV.fxml";
+        Parent root= getRootByPath(path, loader);
+        FriendC friendC= loader.getController();
+        friendC.initView();
+        Scene scene= new Scene(root);
+        this.stage.setScene(scene);
+        this.stage.setResizable(false);
+        this.stage.setTitle("friend");
+        this.stage.show();
+    }
+
     public Parent getRootByPath(String path, FXMLLoader loader){
         Parent root= null;
         URL fxURL= loader.getClassLoader().getResource(path);
