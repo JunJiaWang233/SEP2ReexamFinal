@@ -12,6 +12,9 @@ public class LoginM {
     public void setClient(Client client){
         this.client= client;
     }
+    public Client getClient(){
+        return this.client;
+    }
 
     public User selectUserByEmailPhone(String emailPhone, String password) throws RemoteException, SQLException {
         return client.selectUserByEmailPhone(emailPhone, password);

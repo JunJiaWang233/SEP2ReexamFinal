@@ -10,5 +10,7 @@ import java.sql.SQLException;
 public interface Client extends Remote {
     int insertUserToD(User user) throws RemoteException, SQLException;
     User selectUserByEmailPhone(String emailPhone, String password)throws RemoteException, SQLException;
-    Users getFriendByEmail(String email)  throws RemoteException, SQLException;
+    Users getFriendByEmail()  throws RemoteException, SQLException;
+    void setUser(User user) throws RemoteException;
+    User getUser() throws RemoteException;
 }

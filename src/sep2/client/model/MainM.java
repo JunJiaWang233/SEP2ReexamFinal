@@ -13,7 +13,7 @@ public class MainM {
         this.client= client;
     }
 
-    public Users getFriendByEmail(String email) throws RemoteException, SQLException {
-        return client.getFriendByEmail(email);
+    public Users getFriendByEmail() throws RemoteException, SQLException {
+        return client.getFriendByEmail();
     }
 }

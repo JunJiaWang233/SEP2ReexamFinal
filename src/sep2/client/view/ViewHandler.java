@@ -9,6 +9,8 @@ import sep2.client.viewModel.ViewModelFactory;
 
 import java.io.IOException;
 import java.net.URL;
+import java.rmi.RemoteException;
+import java.sql.SQLException;
 
 public class ViewHandler {
 
@@ -46,12 +48,12 @@ public class ViewHandler {
         this.stage.show();
     }
 
-    public void openMainWindowView(){
+    public void openMainWindowView() throws RemoteException, SQLException {
         FXMLLoader loader= new FXMLLoader();
         String path= "sep2\\client\\view\\MainView.fxml";
         Parent root= getRootByPath(path, loader);
         MainViewC mainViewC= loader.getController();
-        mainViewC.initView(this);
+        mainViewC.initView(viewModelFactory.getMainVM(), this);
         Scene scene= new Scene(root);
         this.stage.setScene(scene);
         this.stage.setResizable(false);

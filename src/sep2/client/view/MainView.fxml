@@ -1,53 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="file:/D:/IDEws/SPE2ReexamFinal/src/sep2/client/view/css/MainView.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sep2.client.view.MainViewC">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sep2.client.view.MainViewC">
    <children>
-      <VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="81.0">
+      <VBox alignment="TOP_CENTER" opacity="0.7" prefHeight="400.0" prefWidth="81.0">
          <children>
-            <ImageView fitHeight="45.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true" styleClass="background">
+            <ImageView fitHeight="45.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
                <VBox.margin>
                   <Insets top="10.0" />
+               </VBox.margin>
+               <image>
+                  <Image url="@css/images/avatar_boy.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@css/images/chat.png" />
+               </image>
+               <VBox.margin>
+                  <Insets top="30.0" />
                </VBox.margin>
             </ImageView>
-            <Button mnemonicParsing="false" text="Button">
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@css/images/friends.png" />
+               </image>
                <VBox.margin>
-                  <Insets top="10.0" />
+                  <Insets top="20.0" />
                </VBox.margin>
-            </Button>
-            <Button mnemonicParsing="false" text="Button">
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-            </Button>
-            <Button mnemonicParsing="false" text="Button">
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-            </Button>
+            </ImageView>
          </children>
-         <styleClass>
-            <String fx:value="background" />
-            <String fx:value="leftBar" />
-         </styleClass>
       </VBox>
-      <FlowPane prefHeight="200.0" prefWidth="200.0">
+      <FlowPane alignment="CENTER" prefHeight="400.0" prefWidth="220.0" style="-fx-border-color: #CACFD2; -fx-border-width: 2px;">
          <children>
             <HBox alignment="CENTER" prefHeight="47.0" prefWidth="200.0">
                <children>
-                  <TextField />
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@css/images/search.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <TextField prefHeight="20.0" prefWidth="150.0">
+                     <padding>
+                        <Insets right="30.0" />
+                     </padding></TextField>
                </children>
             </HBox>
-            <ListView fx:id="hBoxLv" prefHeight="353.0" prefWidth="200.0" styleClass="hBoxLv" />
+            <ListView fx:id="mLv" fixedCellSize="50.0" prefHeight="353.0" prefWidth="200.0" />
          </children>
       </FlowPane>
    </children>

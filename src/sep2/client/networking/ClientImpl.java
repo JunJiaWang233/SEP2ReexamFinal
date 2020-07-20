@@ -15,6 +15,7 @@ import java.sql.SQLException;
 public class ClientImpl implements Client{
     private Server server;
     private ModelFactory modelFactory;
+    private User user;
 
     public ClientImpl(ModelFactory modelFactory) throws RemoteException, NotBoundException {
         UnicastRemoteObject.exportObject(this,0);
@@ -33,13 +34,23 @@ public class ClientImpl implements Client{
 
     @Override
     public User selectUserByEmailPhone(String emailPhone, String password) throws RemoteException, SQLException {
+
         return server.selectUserByEmailPhone(emailPhone, password);
     }
 
     @Override
-    public Users getFriendByEmail(String email) throws RemoteException, SQLException {
-        return server.getFriendByEmail(email);
+    public Users getFriendByEmail() throws RemoteException, SQLException {
+
+        return server.getFriendByEmail(this.user.getEmail());
     }
 
+    @Override
+    public User getUser() {
+        return user;
+    }
 
+    @Override
+    public void setUser(User user) {
+        this.user = user;
+    }
 }

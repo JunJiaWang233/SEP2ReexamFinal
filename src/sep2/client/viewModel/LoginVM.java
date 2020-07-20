@@ -3,6 +3,7 @@ package sep2.client.viewModel;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import sep2.client.model.LoginM;
+import sep2.client.networking.Client;
 import sep2.dataBase.entity.User;
 
 import java.rmi.RemoteException;
@@ -22,6 +23,10 @@ public class LoginVM {
 
     public User selectUserByEmailPhone() throws RemoteException, SQLException {
         return loginM.selectUserByEmailPhone(this.getEmailPhone(), this.getPassword());
+    }
+
+    public Client getClient(){
+        return loginM.getClient();
     }
 
     public String getEmailPhone() {

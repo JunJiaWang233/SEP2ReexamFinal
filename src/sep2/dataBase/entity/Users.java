@@ -26,4 +26,14 @@ public class Users implements Serializable {
         }
         return s;
     }
+
+    public String[] getUsernames(){
+        String[] ss= new String[300];
+        int i= 0;
+        for (User user: users){
+            ss[i]= user.getUsername();
+            i++;
+        }
+        return ss;
+    }
 }
