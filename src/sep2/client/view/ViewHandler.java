@@ -48,10 +48,10 @@ public class ViewHandler {
 
     public void openMainWindowView(){
         FXMLLoader loader= new FXMLLoader();
-        String path= "sep2\\client\\view\\MainWindow.fxml";
+        String path= "sep2\\client\\view\\MainView.fxml";
         Parent root= getRootByPath(path, loader);
-        MainWindowC mainWindowC= loader.getController();
-        mainWindowC.initView(this);
+        MainViewC mainViewC= loader.getController();
+        mainViewC.initView(this);
         Scene scene= new Scene(root);
         this.stage.setScene(scene);
         this.stage.setResizable(false);

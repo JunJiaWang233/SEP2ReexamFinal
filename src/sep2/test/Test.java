@@ -12,10 +12,11 @@ import java.util.Scanner;
 public class Test {
     public static void main(String[] args) throws SQLException {
         FriendDao friendDao= new FriendDaoImpl();
-//        Friend friend= new Friend("test002", "test001");
-//        friendDao.insertFriend(friend);
-        Friend friend= friendDao.selectFriendByHash("test002", "test001");
-        System.out.println(friend.getHashFriend());
+//        UserDao userDao= new UserDaoImpl();
+//        User user=  userDao.getUserByEmailPhone("test002");
+//        System.out.println(user);
+        System.out.println(friendDao.getFriendByEmail("test001").getStr());
+
 
 
     }

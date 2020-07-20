@@ -6,6 +6,7 @@ public class ModelFactory {
     private SignUpM signUpM;
     private Client client;
     private LoginM loginM;
+    private MainM mainM;
 
     public SignUpM getSignUpM(){
         signUpM= null;
@@ -23,6 +24,14 @@ public class ModelFactory {
             loginM.setClient(client);
         }
         return loginM;
+    }
+    public MainM getMainM(){
+        mainM= null;
+        if (mainM== null){
+            mainM= new MainM();
+            mainM.setClient(client);
+        }
+        return mainM;
     }
 
     public void setClientFactory(Client client){

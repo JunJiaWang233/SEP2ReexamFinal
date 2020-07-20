@@ -2,6 +2,7 @@ package sep2.client.networking;
 
 import sep2.client.model.ModelFactory;
 import sep2.dataBase.entity.User;
+import sep2.dataBase.entity.Users;
 import sep2.server.Server;
 
 import java.rmi.NotBoundException;
@@ -33,6 +34,11 @@ public class ClientImpl implements Client{
     @Override
     public User selectUserByEmailPhone(String emailPhone, String password) throws RemoteException, SQLException {
         return server.selectUserByEmailPhone(emailPhone, password);
+    }
+
+    @Override
+    public Users getFriendByEmail(String email) throws RemoteException, SQLException {
+        return server.getFriendByEmail(email);
     }
 
 

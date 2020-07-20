@@ -7,4 +7,5 @@ import java.sql.SQLException;
 public interface UserDao {
     int insertUser(User user) throws SQLException;
     User selectUserByEmailPhone(String emailPhone, String password) throws SQLException;
+    User getUserByEmailPhone(String emailPhone) throws SQLException;
 }

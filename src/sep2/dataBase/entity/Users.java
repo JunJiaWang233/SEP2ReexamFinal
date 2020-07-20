@@ -22,7 +22,7 @@ public class Users implements Serializable {
     public String getStr(){
         String s= "";
         for (User user: users){
-            s+= user+System.getProperty(System.lineSeparator());
+            s+= user+System.getProperty("line.separator");
         }
         return s;
     }

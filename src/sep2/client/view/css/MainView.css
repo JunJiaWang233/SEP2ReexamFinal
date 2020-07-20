@@ -1,0 +1,8 @@
+.leftBar {
+    -fx-background-color: dodgerblue;
+    -fx-opacity: 0.8;
+}
+
+.hBoxLv {
+    -fx-fixed-cell-size: 50px;
+}

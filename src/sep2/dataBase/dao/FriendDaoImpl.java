@@ -2,6 +2,8 @@ package sep2.dataBase.dao;
 
 import sep2.dataBase.dbUtil.DbUtil;
 import sep2.dataBase.entity.Friend;
+import sep2.dataBase.entity.User;
+import sep2.dataBase.entity.Users;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -43,5 +45,33 @@ public class FriendDaoImpl implements FriendDao{
             friend= new Friend(f1d, f2d);
         }
         return friend;
+    }
+
+    @Override
+    public Users getFriendByEmail(String email) throws SQLException {
+        Users users= new Users();
+        connection= DbUtil.getConnection();
+        String sql= "select * from friend where f1= ? or f2= ?";
+        preparedStatement= connection.prepareStatement(sql);
+        preparedStatement.setString(1, email);
+        preparedStatement.setString(2, email);
+        resultSet= preparedStatement.executeQuery();
+        while (resultSet.next()){
+            String f1 = resultSet.getString("f1");
+            String f2= resultSet.getString("f2");
+            String fEmail= "";
+            if (email.equals(f1)){
+                fEmail= f2;
+            }else {
+                fEmail= f1;
+            }
+            UserDao userDao= new UserDaoImpl();
+            User user= userDao.getUserByEmailPhone(fEmail);
+            users.addUser(user);
+
+        }
+
+
+        return users;
     }
 }

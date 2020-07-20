@@ -60,4 +60,30 @@ public class UserDaoImpl implements UserDao{
             DbUtil.closeAll(resultSet, preparedStatement, connection);
         }
     }
+
+    @Override
+    public User getUserByEmailPhone(String emailPhone) throws SQLException {
+        connection= DbUtil.getConnection();
+        User user= null;
+        String sql= "select * from user where (email= ? or phone= ?) ";
+        try {
+            preparedStatement= connection.prepareStatement(sql);
+            preparedStatement.setString(1, emailPhone);
+            preparedStatement.setString(2, emailPhone);
+            resultSet= preparedStatement.executeQuery();
+            while (resultSet.next()){
+                String username= resultSet.getString("username");
+                String pw= resultSet.getString("password");
+                String email= resultSet.getString("email");
+                String phone= resultSet.getString("phone");
+                String g= resultSet.getString("gender");
+                Gender gender= Gender.valueOf(g);
+                user= new User(username,pw,email,phone,gender);
+
+            }
+            return user;
+        }finally {
+            DbUtil.closeAll(resultSet, preparedStatement, connection);
+        }
+    }
 }

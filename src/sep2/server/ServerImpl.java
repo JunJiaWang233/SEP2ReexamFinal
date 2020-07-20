@@ -1,8 +1,11 @@
 package sep2.server;
 
+import sep2.dataBase.dao.FriendDao;
+import sep2.dataBase.dao.FriendDaoImpl;
 import sep2.dataBase.dao.UserDao;
 import sep2.dataBase.dao.UserDaoImpl;
 import sep2.dataBase.entity.User;
+import sep2.dataBase.entity.Users;
 
 import java.rmi.AlreadyBoundException;
 import java.rmi.RemoteException;
@@ -14,6 +17,7 @@ import java.sql.SQLException;
 public class ServerImpl implements Server{
 
     private UserDao userDao;
+    private FriendDao friendDao;
 
 
     public ServerImpl() throws RemoteException, AlreadyBoundException {
@@ -22,6 +26,7 @@ public class ServerImpl implements Server{
         registry.bind("server", this);
 
         this.userDao= new UserDaoImpl();
+        this.friendDao= new FriendDaoImpl();
     }
 
     @Override
@@ -36,4 +41,11 @@ public class ServerImpl implements Server{
        User user= userDao.selectUserByEmailPhone(emailPhone, password);
         return user;
     }
+
+    @Override
+    public Users getFriendByEmail(String email) throws RemoteException, SQLException {
+        return friendDao.getFriendByEmail(email);
+    }
+
+
 }
