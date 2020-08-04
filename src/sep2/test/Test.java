@@ -12,5 +12,6 @@ public class Test {
        UserDao userDao= new UserDaoImpl();
 
         System.out.println( userDao.selectUserByEmailPhone("1", "test01"));
+        System.out.println("asdasd");
     }
 }
